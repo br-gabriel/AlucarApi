@@ -4,7 +4,7 @@ import { PostgresCategoriesRepository } from '../repositories/PostgresCategories
 import { CreateCategoryService } from '../services/CreateCategoryService';
 
 const categoriesRoutes = Router();
-const categoriesRepository = new PostgresCategoriesRepository();
+const categoriesRepository = new CategoriesRepository();
 
 categoriesRoutes.post("/", (request, response) => {
     const { name, description } = request.body;
@@ -18,7 +18,7 @@ categoriesRoutes.post("/", (request, response) => {
 categoriesRoutes.get("/", (request, response) => {
     const all = categoriesRepository.list();
 
-    return response.json(all)
+    return response.json(all);
 })
 
 export { categoriesRoutes };
