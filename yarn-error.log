@@ -30,8 +30,8 @@ npm manifest:
       "typescript": "^4.6.4"
     },
     "scripts": {
-      "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts",
-      "typeorm": "ts-node-dev ./node_modules/typeorm/cli"
+      "dev": "ts-node-dev --poll --transpile-only --ignore-watch node_modules --exit-child src/server.ts",
+      "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
     },
     "dependencies": {
       "@types/express": "^4.17.13",
