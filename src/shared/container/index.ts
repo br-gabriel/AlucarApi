@@ -5,7 +5,7 @@ import { SpecificationsRepository } from '../../modules/cars/repositories/implem
 import { ISpecificationsRepository } from '../../modules/cars/repositories/ISpecificationsRepository';
 
 container.registerSingleton<ICategoriesRepository>(
-    "CategoriesRepository",
+    "CategoriesRepository", //definição do nome do container
     CategoriesRepository
 )
 
