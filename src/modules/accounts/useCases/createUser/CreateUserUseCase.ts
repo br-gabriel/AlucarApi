@@ -2,6 +2,7 @@ import { inject, injectable } from "tsyringe";
 import { ICreateUserDTO } from "../../dtos/ICreateUserDTO";
 import { IUserRepository } from "../../repositories/IUsersRepository";
 import { hash } from "bcrypt";
+import { AppError } from "../../../../errors/AppError";
 
 @injectable()
 class CreateUserUseCase {
@@ -21,7 +22,7 @@ class CreateUserUseCase {
 
         const emailAlreadyExists = await this.usersRepository.findByEmail(email)
         if(emailAlreadyExists) {
-            throw new Error("This email is already in use")
+            throw new AppError("This email is already in use", 401)
         }
 
         await this.usersRepository.create({
